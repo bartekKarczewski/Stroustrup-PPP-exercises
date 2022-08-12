@@ -23,8 +23,9 @@ int multiply(int val1, int val2){
     return val1 * val2;
 }
 
-double proportion(int val1, int val2){
-    return (val2 * 1.0)/ val1;
+void proportion(int val1, int val2){
+    if(val1 == 0) error("Cant divide by 0");
+    cout << val2 << " is " << (val2 * 1.0)/val1 << " of " << val1 << "\n";
 }
 
 void init(){
@@ -36,10 +37,15 @@ void init(){
     cout << "Sum is: " << sum(val1, val2) << "\n";
     cout << "Difference is: " << subtract(val1,val2) << "\n";
     cout << val1 << " times " << val2 << " equals: " << multiply(val1, val2) << "\n";
-    cout << val2 << " is " << proportion(val1, val2) << " of " << val1 << "\n";
+    proportion(val1, val2);
 }
 
-int main(){
-    init();
-    return 0;
-}
+int main()
+    try{
+        init();
+        return 0;
+    }
+    catch(exception& e){
+        cout << e.what() << endl;
+        return 1;
+    }
