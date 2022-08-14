@@ -5,8 +5,15 @@
 #include <iostream>
 
 void init(){
-    vector<string> strings {"Fitzgerald, Hemingway, Steinbeck"};
+    vector<string> strings {"Steinbeck", "Hemingway", "Fitzgerald", "Conrad"};
     cout << "We have following strings: ";
+    for(auto name: strings){
+        cout << name << ", ";
+    }
+    cout << "\n";
+    sort(strings.begin(), strings.end());
+    cout << "-------------------------" << endl;
+    cout << "Sorted strings: ";
     for(auto name: strings){
         cout << name << ", ";
     }
