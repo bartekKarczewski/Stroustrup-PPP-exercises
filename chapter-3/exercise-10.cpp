@@ -16,7 +16,8 @@ void calculate(string operation, double val1, double val2){
         cout << val1 * val2 << endl;
     }
     else if(operation == "divide" || operation =="/"){
-        cout << val1 / val2 << endl;
+        if(val2 == 0) cout << "Cant divide by 0\n";
+        if(val2 != 0) cout << val1 / val2 << endl;
     }
 }
 
@@ -26,6 +27,7 @@ void init(){
     double val1{0};
     double val2{0};
     while(cin){
+        cout << "Type in operation and two values to calculate: ";
         cin >> operation >> val1 >> val2;
         if(cin) calculate(operation, val1, val2);
         else {
