@@ -6,6 +6,27 @@
 #include "../std_lib_facilities.h"
 #include <iostream>
 
+void sum_up(vector<int> monety){
+    vector<int> ratio = {1,2,5,10,20,50,100};
+    int sum{0};
+    for(int i = 0; i < monety.size(); ++i){
+        sum += monety[i] * ratio[i];
+    }
+    cout << "==================================" << endl;
+    cout << "Razem masz " << sum << " groszy "<< "(" << sum/100.00 << " złotych)." << endl;
+
+}
+
+void print_out(vector<int> monety){
+    monety[0] <= 4 ? cout << "Masz " << monety[0] << " jednogroszówki." << endl : cout << "Masz " << monety[0] << " jednogroszówek." << endl;
+    monety[1] <= 4 ? cout << "Masz " << monety[1] << " dwugroszówki." << endl : cout << "Masz " << monety[1] << " dwugroszówek." << endl;
+    monety[2] <= 4 ? cout << "Masz " << monety[2] << " pięciogroszówki." << endl : cout << "Masz " << monety[2] << " pięciogroszówek." << endl;
+    monety[3] <= 4 ? cout << "Masz " << monety[3] << " dziesięciogroszówki." << endl : cout << "Masz " << monety[3] << " dziesięciogroszówek." << endl;
+    monety[4] <= 4 ? cout << "Masz " << monety[4] << " dwudziestogroszówki." << endl : cout << "Masz " << monety[4] << " dwudziestogroszówek." << endl;
+    monety[5] <= 4 ? cout << "Masz " << monety[5] << " pięćdziesięciogroszówki." << endl : cout << "Masz " << monety[5] << " pięćdziesięciogroszówek." << endl;
+    monety[6] <= 4 ? cout << "Masz " << monety[6] << " złotówki." << endl : cout << "Masz " << monety[6] << " złotówek." << endl;
+}
+
 
 void init(){
     int jedno{0};
@@ -15,23 +36,33 @@ void init(){
     int dwadziescia{0};
     int piecdziesiat{0};
     int zloty{0};
+    vector<int> monety;
 
     cout << "Ile masz jednogroszówek? ";
     cin >> jedno;
+    monety.push_back(jedno);
     cout << "Ile masz dwugroszówek? ";
     cin >> dwu;
+    monety.push_back(dwu);
     cout << "Ile masz pięciogroszówek? ";
     cin >> piecio;
+    monety.push_back(piecio);
     cout << "Ile masz dziesięciogroszówek? ";
     cin >> dziesiec;
+    monety.push_back(dziesiec);
     cout << "Ile masz dwudziestogroszówek? ";
     cin >> dwadziescia;
+    monety.push_back(dwadziescia);
     cout << "Ile masz pięcdziesięciogroszówek? ";
     cin >> piecdziesiat;
+    monety.push_back(piecdziesiat);
     cout << "Ile masz złotówek? ";
     cin >> zloty;
+    monety.push_back(zloty);
     cout << endl;
     cout << "==============================" << endl;
+    print_out(monety);
+    sum_up(monety);
 }
 
 int main()
