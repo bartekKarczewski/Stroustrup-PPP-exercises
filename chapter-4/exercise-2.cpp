@@ -12,6 +12,8 @@ int main(){
         temps.push_back(temp);
     }
     sort(temps.begin(), temps.end());
+    if(temps.size() % 2 != 0) cout << "Median is: " << temps[temps.size()/2] << endl;
+    else cout << "Median is: " <<  (temps[temps.size()/2] + temps[(temps.size()/2) - 1])/2 << endl;
 
 
     return 0;
