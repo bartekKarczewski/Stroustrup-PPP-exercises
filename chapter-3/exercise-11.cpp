@@ -24,7 +24,7 @@ void print_out(vector<int> monety){
     monety[3] <= 4 ? cout << "Masz " << monety[3] << " dziesięciogroszówki." << endl : cout << "Masz " << monety[3] << " dziesięciogroszówek." << endl;
     monety[4] <= 4 ? cout << "Masz " << monety[4] << " dwudziestogroszówki." << endl : cout << "Masz " << monety[4] << " dwudziestogroszówek." << endl;
     monety[5] <= 4 ? cout << "Masz " << monety[5] << " pięćdziesięciogroszówki." << endl : cout << "Masz " << monety[5] << " pięćdziesięciogroszówek." << endl;
-    monety[6] <= 4 ? cout << "Masz " << monety[6] << " złotówki." << endl : cout << "Masz " << monety[6] << " złotówek." << endl;
+    monety[6] <= 4 && monety[6] > 1 ? cout << "Masz " << monety[6] << " złote." << endl : cout << "Masz " << monety[6] << " złoty." << endl;
 }
 
 
