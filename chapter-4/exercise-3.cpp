@@ -3,8 +3,25 @@
 
 #include "../std_lib_facilities.h"
 #include <iostream>
+#include <cmath>
+
+void adjacent(vector<double> distances){
+    double smallest{abs(distances[0] - distances[1])};
+    double largest{abs(distances[0] - distances[1])};
+
+    for(int i = 1; i < distances.size(); ++i){
+        if(distances[i] != distances.back()){
+            double difference = abs(distances[i] - distances[i + 1]);
+            if(smallest > difference) smallest = difference;
+            if(largest < difference ) largest = difference; 
+        }
+    }
+    cout << "Smallest diference between adjacent distances is: " << smallest << endl;
+    cout << "Largest difference between adjacent distances is: " << largest << endl;
+}
 
 void summary(vector<double> distances){
+    adjacent(distances);
     sort(distances.begin(), distances.end());
     double sum{0};
     for(auto distance: distances){
@@ -12,7 +29,9 @@ void summary(vector<double> distances){
     }
     cout << "Sum of distances is: " << sum << endl;
     cout << "Smallest distance in collection is: " << distances[0] << endl;
-    cout << "Largest distance in collection is: " << distances[distances.size() - 1];
+    cout << "Largest distance in collection is: " << distances[distances.size() - 1] << endl;
+    cout << "Average distance is: " << sum/distances.size() << endl;
+    
 }
 
 void init(){
@@ -22,9 +41,6 @@ void init(){
     while(cin){
         cin>> temp;
         if(cin) distances.push_back(temp);
-    }
-    for(auto item: distances){
-        cout << item << ", ";
     }
     summary(distances);
 }
