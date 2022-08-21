@@ -4,21 +4,27 @@
 #include "../std_lib_facilities.h"
 #include <iostream>
 
-void summart(vector<double> distances){
+void summary(vector<double> distances){
     sort(distances.begin(), distances.end());
     double sum{0};
     for(auto distance: distances){
         sum += distance;
     }
+    cout << "Sum of distances is: " << sum << endl;
+    cout << "Smallest distance in collection is: " << distances[0] << endl;
+    cout << "Largest distance in collection is: " << distances[distances.size() - 1];
 }
 
 void init(){
     vector<double> distances;
-    double temp{0};
+    double temp;
     cout << "Enter couple distance values: ";
     while(cin){
         cin>> temp;
-        distances.push_back(temp);
+        if(cin) distances.push_back(temp);
+    }
+    for(auto item: distances){
+        cout << item << ", ";
     }
     summary(distances);
 }
