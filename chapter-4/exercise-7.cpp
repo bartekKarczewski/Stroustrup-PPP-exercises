@@ -4,8 +4,8 @@
 #include "../std_lib_facilities.h"
 #include <iostream>
 
-void calculate(double val1, double val2, char operation){
-    double result{0};
+void calculate(int val1, int val2, char operation){
+    int result{0};
     switch(operation){
         case '+':
             cout << "Sum of " << val1 << " and " << val2 << " is -> " << (val1 + val2) << endl;
@@ -28,15 +28,31 @@ void calculate(double val1, double val2, char operation){
     }
 }
 
+
+int get_number(){
+    vector<string> spelled_nums {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
+    const int not_a_digit = spelled_nums.size();
+    int val{not_a_digit};
+    if(cin>>val) return val;
+    cin.clear();
+    string s_val;
+    cin>> s_val;
+    for(int i = 0; i < spelled_nums.size(); ++i){
+        if(spelled_nums[i] == s_val) val = i;
+    }
+    if(val == not_a_digit) error("this is not digit or spelled digit: ", s_val);
+    return val;
+}
+
 void init(){
-    double val1{0};
-    double val2{0};
     char operation;
     cout << "**This is simple calculator**" << endl;
-    cout << "Enter two values and operation you wish to do" << endl;
-    cout << "Example: 0.4 2.5 *(each separated with space)" << endl;
+    cout << "Enter two digits or spelled digits and operation you wish to do" << endl;
+    cout << "Example: 4 12 *(each separated with space)" << endl;
     cout << ">>";
-    cin >> val1 >> val2 >> operation;
+    int val1 = get_number();
+    int val2 = get_number();
+    cin >> operation;
     calculate(val1, val2, operation);
 }
 
