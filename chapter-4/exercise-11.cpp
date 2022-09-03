@@ -6,8 +6,8 @@
 
 bool is_prime(int num, vector<int> primes){
     bool result = true;
-    for(auto item: primes){
-        if(num % item == 0) result = false; 
+    for(auto prime: primes){
+        if(num % prime == 0) result = false; 
     }
     return result;
 }
