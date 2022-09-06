@@ -1,4 +1,4 @@
-/*Chapter 4 ** excercise 13:
+/*Chapter 4 ** excercise 14:
      Program finds given number of primes and displays them*/
 
 #include "../std_lib_facilities.h"
