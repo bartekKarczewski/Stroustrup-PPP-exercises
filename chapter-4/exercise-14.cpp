@@ -1,36 +1,31 @@
 /*Chapter 4 ** excercise 14:
-     Program finds given number of primes and displays them*/
+     Program searches for primes in range of 1-n with use of Sieve of Eratosthenes */
 
 #include "../std_lib_facilities.h"
 #include <iostream>
 
-bool is_prime(int num, vector<int> primes){
-    bool result = true;
-    for(auto prime: primes){
-        if(num % prime == 0) result = false; 
-    }
-    return result;
-}
-
-void display(vector<int> primes){
-    for(auto prime: primes) {
-        cout << prime << endl;
-    }
-}
-
 void init(){
-    vector<int> primes{2};
-    int count{0};
-    int num{3};
-    cout << "How many primes: ";
-    cin >> count;
-    while(primes.size() < count){
-        if(is_prime(num, primes)) primes.push_back(num);
-        num += 2;
-    }
-    display(primes);
-}
+    int arr_size{0};
+    cout << "Enter max value of range: ";
+    cin >> arr_size;
 
+    bool prime[arr_size];
+    for(int i = 0; i < arr_size; i ++){
+        prime[i] = true;
+    }
+ 
+    for(int p = 2; p * p <= arr_size; p++){
+        if(prime[p] == true){
+            for(int i = p * p; i <= arr_size; i += p){
+                prime[i] = false;
+            }
+        }
+    }
+
+    for (int p = 2; p <= arr_size; p++)
+        if (prime[p])
+            cout << p << " ";
+}
 int main()
     try{
         init();
