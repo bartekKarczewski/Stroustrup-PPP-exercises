@@ -11,6 +11,8 @@ void count(vector<int> collection){
     int current_count{1};
     int prev_num{collection.back()};
     int mode{collection[0]};
+    int max = collection.back();
+    int min = collection.front();
     for(auto num: collection){
         current_count = std::count(collection.begin(), collection.end(), num);
         if(current_count > count){
@@ -20,6 +22,8 @@ void count(vector<int> collection){
         }
     }
     cout << "Mode: " << mode << " appears " << count << " times" << endl;
+    cout << "Lowest value: " << min << endl;
+    cout << "Largest value: " << max << endl;
 }
 void init(){
     vector<int> collection;
