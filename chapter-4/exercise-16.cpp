@@ -11,19 +11,14 @@ void count(vector<int> collection){
     int current_count{1};
     int prev_num{collection.back()};
     int mode{collection[0]};
-    for(const auto num: collection){
-        if (num == prev_num) {
-            ++current_count;
-         if (current_count > count) {
+    for(auto num: collection){
+        current_count = std::count(collection.begin(), collection.end(), num);
+        if(current_count > count){
             count = current_count;
             mode = num;
-            }
-        }
-        else {
             current_count = 1;
         }
-        prev_num = num;
-        }
+    }
     cout << "Mode: " << mode << " appears " << count << " times" << endl;
 }
 void init(){
