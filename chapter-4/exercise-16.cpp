@@ -1,4 +1,4 @@
-/*Chapter 4 ** excercise 15:
+/*Chapter 4 ** excercise 17:
      Program searches for mode in collection of numbers */
 
 #include "../std_lib_facilities.h"
