@@ -4,7 +4,7 @@
 #include "../std_lib_facilities.h"
 #include <iostream>
 
-void name_search(string name, const vector<string> &names, const vector<int> ages){
+void name_search(string name, const vector<string> &names, const vector<int> &ages){
     int i = 0;
     while (i < names.size()){
         if(name == names[i]) {
