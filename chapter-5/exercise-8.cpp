@@ -7,7 +7,7 @@
 void init();
 
 void sum_up(int size, vector<int> values){
-    if(size < values.size()){
+    if(size <= values.size()){
         int sum{0};
         for(int i = 0; i < size; i++){
             sum += values[i];
