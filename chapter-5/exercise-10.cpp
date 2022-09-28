@@ -1,4 +1,4 @@
-/*Chapter 5 ** excercise 8:
+/*Chapter 5 ** excercise 10:
     Modify program from exercise 8 so that it works with double type. Add vector that will contain differences between adjacent elements of numbers in collection*/
 
 #include "../std_lib_facilities.h"
