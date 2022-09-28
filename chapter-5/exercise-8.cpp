@@ -1,5 +1,5 @@
 /*Chapter 5 ** excercise 8:
-    Program checks if delta is positive or negative and by that answers if equation with given values has solution*/
+    Program receives collection of numbers and sums up n of them*/
 
 #include "../std_lib_facilities.h"
 #include <iostream>
