@@ -3,9 +3,9 @@
     For correct digit at wrong position player gets one COW.
     For correct digit at correct position player gets one BULL.
     Game ends with getting four BULLS.
-    Input shorter than 4 digits is padded with 0s by default, for ex. input -> 87 is processed as 0087
     
-    Errors with bad input still needs improving*/
+    Second improved version.
+    Still I'd like to fix error handling - don't want to quit program after error occurance*/
 
 #include "../std_lib_facilities.h"
 #include <iostream>
@@ -32,13 +32,26 @@ void play_game(const vector<int> &bulls_cows, const vector<int> &users_choice, b
     }
     
 }
-vector<int> num_to_vec(int num){
-    vector<int> users_choice(4,0);
+vector<int> num_to_vec(string str_num){
+    vector<int> users_choice (4,0);
+    int num = stoi(str_num);
     users_choice[0] = num/1000 % 10;
     users_choice[1] = num/100 % 10;
     users_choice[2] = num/10 % 10;
     users_choice[3] = num % 10;
     return users_choice;
+
+}
+
+string get_input(){
+    string num;
+    cout << "Enter guess: ";
+    cin >> num;
+    if(num.length() != 4) error("Number must be 4-digit long");
+    for(int i = 0; i < num.length(); i++){
+        if(num[i] <= '0' || num[i] >= '9') error("Invalid character.");
+    }
+    return num;
 }
 
 void init(){
@@ -50,15 +63,10 @@ void init(){
     vector<int> bulls_cows {4,5,8,7};
     vector<int> users_choice;
     bool game_on = true;
-    int num;
+
+    string num;
     while(game_on){
-        cout <<"Enter your guess: ";
-        cin >> num;
-        if(cin.fail()) {
-            cout <<"Wrong input!" << endl;
-            cin.clear();
-        }
-        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        num = get_input();
         users_choice = num_to_vec(num);
         play_game(bulls_cows, users_choice, game_on);
     }
