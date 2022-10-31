@@ -1,4 +1,4 @@
-/*Chapter 5 ** excercise 12:
+/*Chapter 5 ** excercise 13:
     Game of bulls and cows. Program holds vector of 4 digits. In order to win a game user needs to guess all digits and its correct position. 
     For correct digit at wrong position player gets one COW.
     For correct digit at correct position player gets one BULL.
@@ -8,7 +8,6 @@
     Still I'd like to fix error handling - don't want to quit program after error occurance*/
 
 #include "../std_lib_facilities.h"
-#include <iostream>
 #include <time.h>
 
 void play_game(const vector<int> &bulls_cows, const vector<int> &users_choice, bool &game_on){
