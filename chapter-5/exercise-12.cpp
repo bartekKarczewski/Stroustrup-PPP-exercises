@@ -13,14 +13,24 @@
 void play_game(const vector<int> &bulls_cows, const vector<int> &users_choice, bool &game_on){
     int bulls{0};
     int cows{0};
+    vector<char> is_bull (4, 'n');
+    vector<char> is_cow (4, 'n');
+
+    //Loop searching for bulls
     for(int i = 0; i < bulls_cows.size(); i++){
-        for(int j = 0; j < users_choice.size(); j++){
-            if(bulls_cows[i] == users_choice[j]){
-                if(i == j){
-                    bulls++;    
-                }
-                else {
-                    cows++;  
+        if(bulls_cows[i] == users_choice[i]){
+            is_bull[i] = 'y';
+            ++bulls;
+        }
+    }
+    for(int i = 0; i < bulls_cows.size(); i++){
+        if(is_bull[i] = 'n'){
+            for(int j = 0; j < bulls_cows.size(); j++){
+                if(is_bull[j] == 'n' && is_cow[j] == 'n'){
+                    if(bulls_cows[i] == users_choice[j]){
+                        is_cow[j] = 'y';
+                        ++cows;
+                    }
                 }
             }
         }
@@ -30,7 +40,6 @@ void play_game(const vector<int> &bulls_cows, const vector<int> &users_choice, b
     if(bulls == 4){
         game_on = false;
     }
-    
 }
 vector<int> num_to_vec(string str_num){
     vector<int> users_choice (4,0);
