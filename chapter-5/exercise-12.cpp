@@ -8,7 +8,6 @@
     Still I'd like to fix error handling - don't want to quit program after error occurance*/
 
 #include "../std_lib_facilities.h"
-#include <iostream>
 
 void play_game(const vector<int> &bulls_cows, const vector<int> &users_choice, bool &game_on){
     int bulls{0};
